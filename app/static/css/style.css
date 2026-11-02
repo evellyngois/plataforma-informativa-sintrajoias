@@ -169,3 +169,10 @@ section > h1 { line-height: 1.2; }
     .button { width: 100%; }
     .hero, .article-detail, .empty-state { padding: 22px; }
 }
+/* Melhoria de acessibilidade para navegação por teclado */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
