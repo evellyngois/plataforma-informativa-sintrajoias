@@ -24,4 +24,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Executar testes
-        run: pytest --cov=app --cov-report=term-missing --cov-fail-under=80
+        run: python -m pytest --cov=app --cov-report=term-missing --cov-fail-under=80
