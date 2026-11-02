@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Conteúdo não disponível | Sintrajoias{% endblock %}
+
+{% block content %}
+<section class="empty-state" role="alert">
+    <div class="empty-icon" aria-hidden="true">!</div>
+    <h1>Conteúdo não disponível</h1>
+    <p>A informação solicitada não foi encontrada ou não está disponível para consulta.</p>
+    <a class="button" href="{{ url_for('main.index') }}">Voltar às categorias</a>
+</section>
+{% endblock %}

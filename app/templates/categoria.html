@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ categoria.nome }} | Sintrajoias{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb" aria-label="Navegação estrutural">
+    <a href="{{ url_for('main.index') }}">← Voltar às categorias</a>
+</nav>
+
+<section>
+    <p class="eyebrow">Categoria</p>
+    <h1>{{ categoria.nome }}</h1>
+    {% if categoria.descricao %}<p>{{ categoria.descricao }}</p>{% endif %}
+
+    {% if conteudos %}
+        <div class="content-list">
+            {% for conteudo in conteudos %}
+                <article class="content-card">
+                    <div>
+                        <h2>{{ conteudo.titulo }}</h2>
+                        {% if conteudo.resumo %}<p>{{ conteudo.resumo }}</p>{% endif %}
+                        <p class="meta">Publicado em {{ conteudo.data_publicacao.strftime('%d/%m/%Y') }}</p>
+                    </div>
+                    <a class="button" href="{{ url_for('main.conteudo', conteudo_id=conteudo.id_conteudo) }}">
+                        Ver detalhes
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state" role="status" aria-live="polite">
+            <div class="empty-icon" aria-hidden="true">ⓘ</div>
+            <h2>Nenhum conteúdo encontrado</h2>
+            <p>No momento, não há informações disponíveis nesta categoria.</p>
+            <a class="button" href="{{ url_for('main.index') }}">Voltar às categorias</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ conteudo.titulo }} | Sintrajoias{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb" aria-label="Navegação estrutural">
+    <a href="{{ url_for('main.categoria', categoria_id=conteudo.id_categoria) }}">← Voltar para {{ conteudo.categoria.nome }}</a>
+</nav>
+
+<article class="article-detail">
+    <p class="eyebrow">{{ conteudo.categoria.nome }}</p>
+    <h1>{{ conteudo.titulo }}</h1>
+    <p class="meta">Publicado em {{ conteudo.data_publicacao.strftime('%d/%m/%Y') }}</p>
+    <div class="article-text">{{ conteudo.texto_conteudo }}</div>
+</article>
+{% endblock %}

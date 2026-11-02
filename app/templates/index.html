@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Início | Sintrajoias{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <p class="eyebrow">Portal do Trabalhador</p>
+    <h1>Informação, direitos e serviços para o trabalhador joalheiro</h1>
+    <p>Encontre conteúdos públicos organizados de forma simples e rápida.</p>
+</section>
+
+<section aria-labelledby="titulo-categorias">
+    <h2 id="titulo-categorias">Categorias</h2>
+
+    {% if categorias %}
+        <div class="card-grid">
+            {% for categoria in categorias %}
+                <a class="card" href="{{ url_for('main.categoria', categoria_id=categoria.id_categoria) }}">
+                    <h3>{{ categoria.nome }}</h3>
+                    <p>{{ categoria.descricao or 'Consulte as informações disponíveis nesta categoria.' }}</p>
+                    <span>Ver conteúdos →</span>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state" role="status">
+            <h3>Nenhuma categoria disponível</h3>
+            <p>As informações serão disponibilizadas em breve.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

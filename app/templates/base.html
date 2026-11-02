@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portal informativo do Sintrajoias para trabalhadores do setor joalheiro.">
+    <title>{% block title %}Sintrajoias{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="{{ url_for('main.index') }}" aria-label="Ir para a página inicial">
+                <span class="brand-mark" aria-hidden="true">◇</span>
+                <span>Sintrajoias</span>
+            </a>
+            <span class="header-subtitle">Portal do Trabalhador</span>
+        </div>
+    </header>
+
+    <main class="container" id="conteudo-principal">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Protótipo acadêmico — informações fictícias para validação.</p>
+        </div>
+    </footer>
+</body>
+</html>
