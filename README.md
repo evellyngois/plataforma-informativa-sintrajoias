@@ -98,3 +98,13 @@ README.md
 ## CI
 
 O workflow do GitHub Actions executa automaticamente os testes e verifica cobertura mínima de 80% em pushes e Pull Requests para a branch `main`.
+
+## Qualidade e integração contínua
+
+O projeto utiliza testes automatizados com Pytest e pipeline de integração contínua com GitHub Actions.
+
+Comandos principais:
+
+```bash
+python -m pytest
+python -m pytest --cov=app --cov-report=term-missing
